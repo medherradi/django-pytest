@@ -11,11 +11,8 @@ class UserSerializer(serializers.ModelSerializer):
 
 class PostSerializer(serializers.ModelSerializer):
     likes = UserSerializer(many=True, read_only=True)
-    author = UserSerializer()
+    author = serializers.StringRelatedField()
 
     class Meta:
         model = Post
         fields = ['id', 'title', 'author', 'content', 'likes', 'count_likes']
-
-    def create(self, validated_data):
-        return super().create(validated_data)
