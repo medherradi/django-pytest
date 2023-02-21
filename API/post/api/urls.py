@@ -6,6 +6,6 @@ from .views import post_list, post_detail
 # router.register('post', PostViewset, basename='post')
 
 urlpatterns = [
-    path('posts/', post_list),
-    path('posts/<int:pk>/', post_detail)
+    path('posts/', post_list, name='post_list'),
+    path('posts/<int:pk>/', post_detail, name='post_detail')
 ]

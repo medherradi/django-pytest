@@ -2,8 +2,7 @@ from ..models import Post
 from django.shortcuts import get_object_or_404
 from .serializers import PostSerializer
 from rest_framework import status
-from rest_framework.generics import CreateAPIView, ListCreateAPIView, DestroyAPIView, RetrieveUpdateAPIView
-from rest_framework.decorators import action, api_view
+from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
 
