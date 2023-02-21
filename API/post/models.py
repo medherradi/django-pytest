@@ -4,8 +4,16 @@ from django.utils.text import slugify
 
 
 class Post(models.Model):
-    title = models.CharField(max_length=20, unique=True, blank=False)
+
+    class PostStatus(models.TextChoices):
+        SPORTS = 'Sport'
+        POLITICS = 'Politics'
+        ECONOMIES = 'Economies'
+
+    title = models.CharField(max_length=50, unique=True, blank=False)
     slug = models.SlugField(blank=True)
+    status = models.CharField(
+        choices=PostStatus.choices, default=PostStatus.POLITICS, max_length=30)
     content = models.TextField(max_length=1500)
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='author')
