@@ -31,4 +31,6 @@ class TestGetPost(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(json.loads(response.content)
                          ['data'][0]['title'], post_test.title)
+        self.assertEqual(json.loads(response.content)
+                         ['data'][0]['content'], post_test.content)
         self.assertEqual(json.loads(response.content)['count'], 1)
