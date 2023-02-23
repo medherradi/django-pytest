@@ -66,3 +66,14 @@ class TestCreatePost(TestBasePost):
         self.assertEqual(response.status_code, 400)
         self.assertEqual(json.loads(response.content),
                          {"title": ['post with this title already exists.']})
+
+    def test_create_post_with_default_data_should_succeed(self):
+        data_test = {'title': 'the war in ukraine',
+                     'content': 'the war between ukraine and russia',
+                     'author': self.user_1,
+                     'status': 'gfbhg'
+                     }
+        response = self.client.post(self.post_url, data_test)
+        self.assertEqual(response.status_code, 201)
+        self.assertEqual(json.loads(response.content),
+                         {"title": ["This field may not be blank."]})
