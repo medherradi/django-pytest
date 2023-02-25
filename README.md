@@ -1,2 +1,2 @@
-# django-unitest
-django-unitest
+# django-unittest
+django-unittest
